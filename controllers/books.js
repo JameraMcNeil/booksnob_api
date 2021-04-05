@@ -36,7 +36,7 @@ ROUTER.get('/', (req,res) => {
 
 // CREATE //
 
-ROUTER.post('/books', (req,res) => {
+ROUTER.post('/', (req,res) => {
     console.log('Posting a new book')
 
     Book.create(req.body, (err, createdBook) => {
@@ -49,7 +49,7 @@ ROUTER.post('/books', (req,res) => {
 
 // DELETE //
 
-ROUTER.delete('/books/:id', (req, res) => {
+ROUTER.delete('/:id', (req, res) => {
     console.log('Deleting an event')
 
     Book.findByIdAndRemove(req.params.id, (err, deletedBook) => {
