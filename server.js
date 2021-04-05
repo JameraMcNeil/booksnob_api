@@ -18,12 +18,15 @@ mongoose.connection.once('open', () => {
     console.log('connected to mongoose...');
 });
 
+
+// MIDDLEWARE //
+
+APP.use(express.json())
+
 // Controllers / Routes //
 
-APP.get('/', (req,res) => {
-    console.log('This gets the list of books')
-    res.send('I love books!')
-})
+const booksController = require('./controllers/books.js');
+APP.use('/books', booksController)
 
 APP.listen(PORT, () => {
     console.log('🎉🎊', 'Listening in on port: ' + PORT, '🎉🎊')
