@@ -2,6 +2,7 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 // Dependency Configuration //
 
@@ -18,6 +19,18 @@ mongoose.connection.once('open', () => {
     console.log('connected to mongoose...');
 });
 
+const whiteList = ['http://localhost:3000'];
+const corsOptions = {
+    origin: function (origin, callback) {
+        if(whiteList.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by Cors'))
+        }
+    }
+};
+
+APP.use(cors(corsOptions))
 
 // MIDDLEWARE //
 
