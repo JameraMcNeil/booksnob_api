@@ -3,5 +3,23 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.12.3"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "booksnob_api",
+  "description": "# User Stories - User can read about the purpose of the Booksnob app and what features are available - Users will be able to view books from the New York Times Best Sellers list and read reviews - Users will be able to add their favorite books to the Book recommendations category - Users will be able to view a selection of BookTub accounts to follow on YouTube and will be brought to each page",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JameraMcNeil/booksnob_api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JameraMcNeil/booksnob_api/issues"
+  },
+  "homepage": "https://github.com/JameraMcNeil/booksnob_api#readme"
 }
