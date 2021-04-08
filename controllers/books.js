@@ -1,6 +1,7 @@
 const express = require('express');
 const ROUTER = express.Router();
 const Book = require('../models/books');
+const axios = require('axios')
 
 // SEED //
 
@@ -22,6 +23,7 @@ ROUTER.get('/seed', (req, res) => {
     });
 });
 
+
 // INDEX //
 
 ROUTER.get('/', (req,res) => {
@@ -32,6 +34,16 @@ ROUTER.get('/', (req,res) => {
         }
         res.status(200).json(foundBooks);
     });
+});
+
+// NYT GET ROUTE //
+
+ROUTER.get('/bestsellers', (req,res, next) => {
+    console.log(res)
+    axios.get('https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=E4AJaWOryaXws37hUao2cpU1uTCjjRU6')
+    .then(data => {
+        res.send(data.data)
+    }).catch(err => next(err))
 });
 
 // CREATE //
