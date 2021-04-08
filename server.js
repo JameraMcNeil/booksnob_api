@@ -35,7 +35,7 @@ const corsOptions = {
     }
 };
 
-APP.use(cors(corsOptions))
+APP.use(cors())
 
 // MIDDLEWARE //
 
