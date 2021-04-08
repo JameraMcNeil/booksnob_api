@@ -4,20 +4,25 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+require('dotenv').config()
+
 // Dependency Configuration //
 
 const APP = express();
-const PORT = 3003;
+const PORT = process.env.PORT || 3003;
 
 // Database Connection //
 
-mongoose.connect('mongodb://localhost:27017/books',
+const MONGODB_URI = process.env.MONGODB_URI || `mongodb://localhost:27017/books`
+
+mongoose.connect(MONGODB_URI,
 { useNewUrlParser: true },
 { useFindAndModify: false },
 { useUnifiedTopology: true });
 mongoose.connection.once('open', () => {
     console.log('connected to mongoose...');
 });
+
 
 const whiteList = ['http://localhost:3000'];
 const corsOptions = {
