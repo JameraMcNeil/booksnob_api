@@ -24,7 +24,7 @@ mongoose.connection.once('open', () => {
 });
 
 
-const whiteList = ['http://localhost:3000'];
+const whiteList = ['http://localhost:3000', 'https://secure-waters-22892.herokuapp.com'];
 const corsOptions = {
     origin: function (origin, callback) {
         if(whiteList.indexOf(origin) !== -1) {
